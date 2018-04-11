@@ -4,7 +4,13 @@ const Controller = require('egg').Controller;
 
 class LoginController extends Controller {
     async index() {
-        this.ctx.body = 'login----------';
+        const {ctx, service } = this;
+        const serviceRes = await service.user.create({
+            userName: 'seasonstar',
+            userAccount: 'ddddddddddddddd',
+            userPassword: 'tang98',
+        });
+        ctx.body = serviceRes;
     }
 }
 
